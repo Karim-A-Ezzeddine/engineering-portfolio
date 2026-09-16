@@ -54,7 +54,7 @@ function Contact() {
   return <section className="contact-section" id="contact" aria-labelledby="contact-title"><div><p className="eyebrow">03 / CONTACT</p><h2 id="contact-title">Let’s discuss<br /><em>the engineering.</em></h2><p>Open to technical conversations around intelligent vehicles, battery systems, automation, and applied research.</p></div><div className="contact-links"><a href={site.github} target="_blank" rel="noreferrer">GitHub <span>↗</span></a>{site.email ? <a href={`mailto:${site.email}`}>Email <span>↗</span></a> : <span className="contact-pending">Email <small>add address</small></span>}{site.linkedin ? <a href={site.linkedin} target="_blank" rel="noreferrer">LinkedIn <span>↗</span></a> : <span className="contact-pending">LinkedIn <small>add URL</small></span>}{site.cv ? <a href={site.cv} target="_blank" rel="noreferrer">CV <span>↗</span></a> : <span className="contact-pending">CV <small>add PDF</small></span>}</div></section>;
 }
 
-function Footer() { return <footer className="site-footer"><span>KARIM EZZEDDINE</span><span>MUNICH, GERMANY</span><span>© {new Date().getFullYear()} · ENGINEERED WITH EVIDENCE</span><a href="#/">BACK TO TOP ↑</a></footer>; }
+function Footer() { return <footer className="site-footer"><span>KARIM EZZEDDINE</span><span>MUNICH, GERMANY</span><span>© {new Date().getFullYear()} · ENGINEERED WITH EVIDENCE</span><a href="#/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>BACK TO TOP ↑</a></footer>; }
 function Home() { return <main><Hero /><Work /><About /><Contact /></main>; }
 
 function CaseStudy({ project }: { project: Project }) {
@@ -73,7 +73,7 @@ function App() {
   const project = projectId ? projectById[projectId] : undefined;
   useEffect(() => { if (!project) { document.title = 'Karim Ezzeddine — Electrical Engineering Portfolio'; document.querySelector('meta[name="description"]')?.setAttribute('content', 'Karim Ezzeddine is a TUM Electrical Engineering Master’s student working across intelligent vehicles, battery state estimation, automation, and energy data.'); const target = route === '/work' ? 'work' : route === '/about' ? 'about' : route === '/contact' ? 'contact' : 'top'; window.setTimeout(() => target === 'top' ? window.scrollTo({ top: 0, behavior: 'smooth' }) : document.getElementById(target)?.scrollIntoView({ behavior: 'smooth' }), 30); } }, [project, route]);
   const onHome = (target = 'top') => { if (!project) window.setTimeout(() => target === 'top' ? window.scrollTo({ top: 0, behavior: 'smooth' }) : document.getElementById(target)?.scrollIntoView({ behavior: 'smooth' }), 0); };
-  return <div className="site-shell"><a className="skip-link" href="#main-content">Skip to content</a><Header onHome={onHome} /><div id="main-content">{project ? <CaseStudy key={project.id} project={project} /> : <Home />}</div><Footer /></div>;
+  return <div className="site-shell"><a className="skip-link" href="#main-content" onClick={(event) => { event.preventDefault(); document.getElementById('main-content')?.focus(); }}>Skip to content</a><Header onHome={onHome} /><div id="main-content" tabIndex={-1}>{project ? <CaseStudy key={project.id} project={project} /> : <Home />}</div><Footer /></div>;
 }
 
 export default App;
