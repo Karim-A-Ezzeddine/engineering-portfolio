@@ -46,4 +46,4 @@ Expected public URL: `https://karim-a-ezzeddine.github.io/engineering-portfolio/
 
 ## Before sharing widely
 
-Set the verified public email, LinkedIn URL, and/or CV path in `src/data/site.ts`. A profile photograph or explanatory video is optional and intentionally absent. If these fields stay unset, the site shows clear non-clickable placeholders rather than broken or invented links.
+Set the verified public email, LinkedIn URL, and/or CV path in `src/data/site.ts`. A profile photograph or explanatory video is optional and intentionally absent. Unset links are omitted from the public page rather than shown as broken or invented links.
