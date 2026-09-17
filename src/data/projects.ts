@@ -97,7 +97,7 @@ export const projects: Project[] = [
       },
       {
         kicker: '09 / INTERFACE', title: 'Make the evidence inspectable',
-        body: ['A Streamlit monitor brings signal exploration, SoC traces, SoH degradation, model comparison, and anomaly flags together by cell and cycle.', 'The project demonstrates battery modeling, estimation, signal processing, leakage-aware evaluation, anomaly screening, and testable Python software.'],
+        body: ['I implemented a Streamlit monitor that brings signal exploration, SoC traces, SoH degradation, model comparison, and anomaly flags together by cell and cycle.', 'The software keeps the model outputs, evaluation results, and screening reasons available for inspection.'],
         visual: 'bms-dashboard', insight: 'The interface preview is a schematic reconstruction of the implemented dashboard, not a screenshot.', source: 'Phase 8 dashboard report · app.py',
       },
     ],
@@ -209,7 +209,7 @@ export const projects: Project[] = [
       },
       {
         kicker: '07 / TAKEAWAY', title: 'Interpretability is a result too',
-        body: ['The global, weather-enriched baseline is the stronger forecast in the current comparison. Clusters offer a useful description of household behavior rather than a clear accuracy gain.', 'The work shows how temporal validation, feature audit, and a transparent baseline can prevent a more complex method from being credited without controlled evidence.'],
+        body: ['The global, weather-enriched baseline is the stronger forecast in the current comparison. Clusters offer a useful description of household behavior rather than a clear accuracy gain.', 'The comparison shows why temporal validation, feature audit, and matched baselines are necessary before crediting the more complex method.'],
         visual: 'eon-takeaway', insight: 'Next experiment: matched-feature global Ridge versus cluster-specific Ridge on the same test rows.', source: 'Baseline Clustering Comparison Report',
       },
     ],

@@ -7,7 +7,7 @@ type Trace = { day: number; ref: number; cc: number; ekf: number; voltage: numbe
 type Health = { cell: number; cycles: number; soh: number };
 const soc = socRaw as Trace[];
 const soh = sohRaw as Health[];
-const colors = { teal: '#b8dbd2', amber: '#d6a881', blue: '#95b2c7', pale: '#e8eeea', muted: '#647477', red: '#d58d79' };
+const colors = { teal: '#2b8f82', amber: '#bd6b32', blue: '#4f7898', pale: '#27343a', muted: '#647477', red: '#bb604e' };
 
 function Panel({ eyebrow, title, note, children }: { eyebrow: string; title: string; note?: string; children: React.ReactNode }) {
   return <div className="visual-frame"><div className="visual-heading"><span>{eyebrow}</span><strong>{title}</strong></div><div className="visual-content">{children}</div>{note && <p className="visual-note">{note}</p>}</div>;
@@ -46,10 +46,10 @@ function Coulomb() {
 function Circuit() {
   return <Panel eyebrow="ONE-RC THEVENIN MODEL" title="Two states, one voltage correction" note="Equivalent circuit is explanatory; R₀ = 0.030 Ω, R₁ = 0.020 Ω, C₁ = 750 F in the cell-002 implementation."><svg className="circuit" viewBox="0 0 640 300" role="img" aria-label="Thevenin circuit showing OCV source, series resistance R0, RC polarization branch, current, and terminal voltage">
     <path d="M75 60H165 M215 60H306 M386 60H550 V242 H75 V60" fill="none" stroke="#b8dbd2" strokeWidth="3" />
-    <circle cx="75" cy="151" r="37" fill="#1a2526" stroke="#b8dbd2" strokeWidth="3" /><path d="M75 114v-54M75 188v54" stroke="#b8dbd2" strokeWidth="3" /><path d="M64 143h22M75 132v22M65 163h20" stroke="#b8dbd2" strokeWidth="2" />
+    <circle cx="75" cy="151" r="37" fill="#f7f9fa" stroke="#2b8f82" strokeWidth="3" /><path d="M75 114v-54M75 188v54" stroke="#2b8f82" strokeWidth="3" /><path d="M64 143h22M75 132v22M65 163h20" stroke="#2b8f82" strokeWidth="2" />
     <path d="M165 44l8 32 11-32 11 32 10-32 10 32" fill="none" stroke="#d6a881" strokeWidth="3" /><path d="M306 60v36M386 60v36M306 96H386M306 192H386M306 192v50M386 192v50" fill="none" stroke="#95b2c7" strokeWidth="3" />
     <path d="M320 99l7 26 11-26 11 26 10-26 9 26v22" fill="none" stroke="#95b2c7" strokeWidth="3" /><path d="M369 165h33M369 177h33" stroke="#95b2c7" strokeWidth="3" />
-    <path d="M550 100v32M550 174v32" stroke="#e8eeea" strokeWidth="2" /><circle cx="550" cy="153" r="12" fill="#111719" stroke="#e8eeea" strokeWidth="2" />
+    <path d="M550 100v32M550 174v32" stroke="#27343a" strokeWidth="2" /><circle cx="550" cy="153" r="12" fill="#f7f9fa" stroke="#27343a" strokeWidth="2" />
     <text x="27" y="270">OCV(SoC)</text><text x="169" y="106">R₀</text><text x="316" y="153">R₁</text><text x="410" y="179">C₁</text><text x="518" y="86">Vterminal</text><text x="458" y="45">I →</text>
   </svg><p className="circuit-equation">Vₜ = OCV(SoC) + R₀I + Vₚ</p></Panel>;
 }
